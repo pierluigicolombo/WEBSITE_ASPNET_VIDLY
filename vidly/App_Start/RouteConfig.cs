@@ -16,7 +16,8 @@ namespace vidly
             routes.MapRoute(
                 name: "MoviesByReleaseDate",
                 url: "movies/released/{year}/{month}",
-                defaults: new { controller = "Movies", action = "ByReleaseDate" }
+                defaults: new { controller = "Movies", action = "ByReleaseDate" },
+                constraints: new {year = @"\d{4}", month=@"\d{2}"}
                 );
 
             routes.MapRoute(
