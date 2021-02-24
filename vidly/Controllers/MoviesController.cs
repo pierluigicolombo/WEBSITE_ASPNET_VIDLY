@@ -11,6 +11,12 @@ namespace vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies/Random
+        List<Movie> movies = new List<Movie>
+        {
+            new Movie {Name ="Spiderman"},
+            new Movie {Name = "1984"}
+
+        };
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
@@ -51,6 +57,15 @@ namespace vidly.Controllers
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
+        }
+
+        public ActionResult GetMovies()
+        {
+            var viewModel = new ListMoviesViewModel
+            {
+                Movies = movies
+            };
+            return View(viewModel);
         }
     }
 }
