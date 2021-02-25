@@ -1,48 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using vidly.Models;
-using vidly.ViewModels;
+using Vidly.Models;
 
-namespace vidly.Controllers
+namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
-        List<Customer> customers = new List<Customer>
-            {
-                new Customer {Name="John Smith", Id= 1},
-                new Customer { Name= "Mary Williams", Id=2}
-            };
-
-        public ActionResult Index()
+        public ViewResult Index()
         {
+            var customers = GetCustomers();
 
-
-            var viewModel = new ListCostumersViewModel
-            {
-                Customers = customers
-            };
-
-            return View(viewModel);
+            return View(customers);
         }
 
-        public ActionResult GetCustomer(int id)
+        public ActionResult Details(int id)
         {
-            foreach(var c in customers)
-            {
-                if (c.Id == id)
-                {
-                    return View(c);
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            return HttpNotFound();
+            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
 
+            if (customer == null)
+                return HttpNotFound();
+
+            return View(customer);
+        }
+
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
+            {
+                new Customer { Id = 1, Name = "John Smith" },
+                new Customer { Id = 2, Name = "Mary Williams" }
+            };
         }
     }
 }
