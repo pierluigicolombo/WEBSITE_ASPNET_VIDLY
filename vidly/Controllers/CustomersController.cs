@@ -18,7 +18,6 @@ namespace Vidly.Controllers
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
-            base.Dispose(disposing);
         }
 
         public ViewResult Index()
