@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using vidly.Models;
 
 namespace Vidly.Models
 {
@@ -18,5 +20,12 @@ namespace Vidly.Models
 
         [Required]
         public int numberInStock { get; set; }
+
+        [ForeignKey("MovieGenre")]
+        public int MovieGenreID { get; set; }
+
+        public virtual MovieGenre MovieGenre { get; set; }
+
+
     }
 }
