@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Vidly.Models;
 
-namespace vidly.Models
+namespace Vidly.Models
 {
     public class MovieGenre
     {

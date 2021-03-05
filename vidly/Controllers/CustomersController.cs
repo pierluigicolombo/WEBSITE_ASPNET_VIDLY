@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using vidly.ViewModels;
+using Vidly.ViewModels;
 using Vidly.Models;
 
 namespace Vidly.Controllers

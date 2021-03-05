@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using vidly.Models;
+using Vidly.Models;
 
 namespace Vidly.Models
 {
