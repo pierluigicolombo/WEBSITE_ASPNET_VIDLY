@@ -23,6 +23,7 @@ namespace Vidly.Models
         [ForeignKey("MembershipType")]
         public byte MembershipTypeId { get; set; } 
 
+        [Display(Name ="Date of Birth")]
         public string Birthdate { get; set; }
 
     }
